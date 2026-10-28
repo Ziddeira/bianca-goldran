@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Alongamento Molde F1 | Bianca Goldran • Glow Studio</title>
   <meta name="description" content="Unhas longas, finas e naturais com alongamento Molde F1. Agende online sua aplicação ou manutenção com a Bianca Goldran no Glow Studio.">
-  <meta name="theme-color" content="#F4EFE7">
+  <meta name="theme-color" content="#EDE6DE">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Alongamento Molde F1 com Bianca Goldran • Glow Studio">
@@ -13,58 +13,64 @@
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta property="og:locale" content="pt_BR">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F4EFE7'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' fill='%23B08A57'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23EDE6DE'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' fill='%233B2F27'%3EG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/galeria-perolado-amendoado.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/hero-perolado.webp">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <a class="skip" href="#agenda">Ir para a agenda</a>
 
   <header class="topo" id="topo">
-    <div class="container topo__inner">
-      <a href="#" class="logo" aria-label="Glow Studio – início">
-        <span class="logo__glow">GLOW</span><span class="logo__studio">studio</span>
-      </a>
-      <a href="#agenda" class="btn btn--primario btn--sm" data-cta="topo">Agendar horário</a>
+    <div class="topo__inner">
+      <a href="#" class="topo__marca">Glow Studio</a>
+      <nav class="topo__nav" aria-label="Seções">
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contato">Contato</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- ============ HERO + GALERIA ============ -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__texto">
-          <p class="eyebrow">Bianca Goldran • Nail designer</p>
-          <h1>Unhas longas, finas e naturais com <em>Molde F1</em></h1>
-          <p class="hero__lead">Aplicação e manutenção de alongamento feitas unha por unha no Glow Studio. Veja os horários vagos e reserve o seu em menos de 1 minuto.</p>
-          <div class="hero__ctas">
-            <a href="#agenda" class="btn btn--primario btn--lg" data-cta="hero">
-              Ver horários vagos
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a href="#" class="link-whats" data-whatsapp="Oi, Bianca! Vim pela sua página e queria tirar uma dúvida sobre o alongamento molde F1.">
-              <svg aria-hidden="true" viewBox="0 0 24 24" class="ico-wa"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.8 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.2.1.4 0 .5l-.5.7c-.1.2-.2.3 0 .6.3.5.9 1.3 1.8 1.9.8.5 1.2.6 1.4.5l.6-.8c.2-.2.3-.2.5-.1l1.6.8c.3.1.4.2.4.3 0 .4-.1 1-.6 1.4-.5.5-1.4.8-2.2.6-1-.2-2.4-.8-3.6-2s-2-2.5-2.2-3.3c-.2-.9 0-1.8.2-2.3Z"/></svg>
-              Dúvidas? Chama no WhatsApp
-            </a>
-          </div>
-        </div>
+    <!-- ============ CAPA ============ -->
+    <section class="capa">
+      <img class="capa__foto" src="assets/img/hero-perolado.webp" width="1086" height="1448" alt="Unhas amendoadas com esmaltação perolada feitas pela Bianca Goldran">
+      <div class="capa__conteudo">
+        <h1 class="capa__titulo">GLOW</h1>
+        <p class="capa__sub"><span>Alongamento Molde F1</span><span class="capa__sep" aria-hidden="true"> • </span><span>Bianca Goldran</span></p>
+        <a href="#agenda" class="pilula" data-cta="capa">
+          <span>Agendar horário</span>
+          <span class="pilula__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </section>
 
-        <div class="galeria" aria-roledescription="carrossel" aria-label="Trabalhos da Bianca">
-          <ul class="galeria__trilho" id="galeria">
-            <li><button type="button" class="galeria__item"><img src="assets/img/galeria-perolado-amendoado.webp" width="720" height="960" alt="Unhas amendoadas com esmaltação perolada"></button></li>
-            <li><button type="button" class="galeria__item"><img src="assets/img/galeria-cat-eye-grafite.webp" width="720" height="960" loading="lazy" alt="Unhas amendoadas com efeito cat eye grafite"></button></li>
-            <li><button type="button" class="galeria__item"><img src="assets/img/galeria-francesinha-cristais.webp" width="720" height="960" loading="lazy" alt="Unha quadrada com francesinha branca e cristais na cutícula"></button></li>
-            <li><button type="button" class="galeria__item"><img src="assets/img/galeria-preto-amendoado.webp" width="720" height="960" loading="lazy" alt="Unhas amendoadas pretas com brilho intenso"></button></li>
-            <li><button type="button" class="galeria__item"><img src="assets/img/galeria-perolado-curto.webp" width="720" height="960" loading="lazy" alt="Unhas curtas arredondadas com efeito perolado nude"></button></li>
-            <li><button type="button" class="galeria__item"><img src="assets/img/unhas-molde-f1.webp" width="900" height="1600" loading="lazy" alt="Acabamento do alongamento molde F1 no Glow Studio"></button></li>
-          </ul>
-          <div class="galeria__setas">
-            <button type="button" class="seta" data-galeria="-1" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
-            <button type="button" class="seta" data-galeria="1" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
-          </div>
+    <!-- ============ INTRO + GALERIA ============ -->
+    <section class="intro" id="trabalhos">
+      <div class="container intro__grid">
+        <h2 class="intro__titulo">Unhas longas,<br>finas e naturais<br>com molde F1</h2>
+        <p class="intro__texto">
+          Aplicação e manutenção de alongamento feitas unha por unha, com curvatura perfeita
+          e acabamento leve. Escolha seu horário na agenda abaixo — ela mostra em tempo real
+          os horários vagos da Bianca.
+        </p>
+      </div>
+
+      <div class="vitrine" aria-roledescription="carrossel" aria-label="Trabalhos da Bianca">
+        <ul class="vitrine__trilho" id="galeria">
+          <li><button type="button" class="vitrine__item"><img src="assets/img/galeria-preto-amendoado.webp" width="720" height="960" loading="lazy" alt="Unhas amendoadas pretas com brilho intenso"></button></li>
+          <li><button type="button" class="vitrine__item"><img src="assets/img/galeria-cat-eye-grafite.webp" width="720" height="960" loading="lazy" alt="Unhas amendoadas com efeito cat eye grafite"></button></li>
+          <li><button type="button" class="vitrine__item"><img src="assets/img/galeria-perolado-amendoado.webp" width="720" height="960" alt="Unhas amendoadas com esmaltação perolada"></button></li>
+          <li><button type="button" class="vitrine__item"><img src="assets/img/galeria-francesinha-cristais.webp" width="720" height="960" loading="lazy" alt="Unha quadrada com francesinha branca e cristais na cutícula"></button></li>
+          <li><button type="button" class="vitrine__item"><img src="assets/img/galeria-perolado-curto.webp" width="720" height="960" loading="lazy" alt="Unhas curtas arredondadas com efeito perolado nude"></button></li>
+          <li><button type="button" class="vitrine__item"><img src="assets/img/unhas-molde-f1.webp" width="900" height="1600" loading="lazy" alt="Acabamento do alongamento molde F1 no Glow Studio"></button></li>
+        </ul>
+        <div class="vitrine__setas">
+          <button type="button" class="seta" data-galeria="-1" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+          <button type="button" class="seta" data-galeria="1" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
         </div>
       </div>
     </section>
@@ -73,8 +79,8 @@
     <section class="secao" id="agenda">
       <div class="container">
         <header class="secao__cabecalho">
-          <h2>Escolha seu <em>horário</em></h2>
-          <p>Horários direto da agenda da Bianca, atualizados em tempo real.</p>
+          <h2>Agende seu horário</h2>
+          <p>Escolha o serviço, o dia e um horário vago.</p>
         </header>
 
         <div class="agenda" id="app-agenda" aria-live="polite">
@@ -149,15 +155,18 @@
     </section>
   </main>
 
-  <footer class="rodape">
-    <div class="container rodape__inner">
-      <a href="#" class="logo logo--claro" aria-label="Glow Studio"><span class="logo__glow">GLOW</span><span class="logo__studio">studio</span></a>
-      <p>Bianca Goldran • Nail designer</p>
-      <p><a href="#" data-maps target="_blank" rel="noopener" data-endereco></a></p>
-      <p class="rodape__links">
-        <a href="#" data-whatsapp="Oi, Bianca! Vim pela sua página.">WhatsApp</a>
-        <a href="#" data-instagram target="_blank" rel="noopener">Instagram</a>
-      </p>
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape" id="contato">
+    <div class="container">
+      <h2 class="rodape__titulo">Ficou com alguma dúvida?</h2>
+      <div class="rodape__linha">
+        <a href="#" data-whatsapp="Oi, Bianca! Vim pela sua página e queria tirar uma dúvida.">Falar no WhatsApp</a>
+        <a href="#" data-maps target="_blank" rel="noopener" data-endereco></a>
+        <a href="#" data-instagram target="_blank" rel="noopener" class="rodape__insta">
+          <span data-instagram-nome></span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
 

@@ -50,6 +50,7 @@
     $$('[data-endereco]').forEach(function (el) { el.textContent = CFG.endereco || ''; });
     $$('[data-maps]').forEach(function (el) { el.href = CFG.mapsUrl || '#'; });
     $$('[data-instagram]').forEach(function (el) { el.href = 'https://instagram.com/' + (CFG.instagram || ''); });
+    $$('[data-instagram-nome]').forEach(function (el) { el.textContent = '@' + (CFG.instagram || ''); });
     $$('[data-whatsapp]').forEach(function (el) {
       el.href = linkWhats(el.getAttribute('data-whatsapp'));
       el.target = '_blank';
@@ -459,31 +460,77 @@
 
   /* ---------------- Interface geral ---------------- */
   function iniciarInterface() {
+    // O topo fica transparente sobre a foto da capa e ganha fundo depois dela.
     var topo = $('#topo');
-    window.addEventListener('scroll', function () { topo.classList.toggle('rolou', window.scrollY > 8); }, { passive: true });
+    var capa = $('.capa');
+    function atualizar() {
+      var limite = capa ? capa.offsetHeight - topo.offsetHeight : 8;
+      topo.classList.toggle('rolou', window.scrollY > limite);
+    }
+    window.addEventListener('scroll', atualizar, { passive: true });
+    window.addEventListener('resize', atualizar);
+    atualizar();
   }
 
-  /* ---------------- Galeria ---------------- */
+  /* ---------------- Vitrine (galeria em perspectiva) ---------------- */
   function iniciarGaleria() {
     var trilho = $('#galeria');
+    var itens = $$('.vitrine__item', trilho);
     var dialogo = $('#foto-ampliada');
     var foto = $('img', dialogo);
+    var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pendente = false;
+
+    // Cada foto gira e diminui conforme se afasta do centro: --d = distância (com sinal), --a = |d|.
+    function inclinar() {
+      pendente = false;
+      var caixa = trilho.getBoundingClientRect();
+      var centro = caixa.left + caixa.width / 2;
+      itens.forEach(function (item) {
+        var r = item.parentNode.getBoundingClientRect();
+        var d = (r.left + r.width / 2 - centro) / (r.width * 1.6);
+        d = Math.max(-1.6, Math.min(1.6, d));
+        item.style.setProperty('--d', semMovimento ? 0 : d.toFixed(3));
+        item.style.setProperty('--a', semMovimento ? 0 : Math.abs(d).toFixed(3));
+      });
+    }
+    function agendarInclinacao() {
+      if (!pendente) { pendente = true; requestAnimationFrame(inclinar); }
+    }
+    function centralizar(li, suave) {
+      trilho.scrollTo({ left: li.offsetLeft - (trilho.clientWidth - li.offsetWidth) / 2, behavior: suave ? 'smooth' : 'auto' });
+    }
+    function indiceCentral() {
+      var centro = trilho.scrollLeft + trilho.clientWidth / 2;
+      var melhor = 0, menor = Infinity;
+      itens.forEach(function (item, i) {
+        var li = item.parentNode;
+        var dist = Math.abs(li.offsetLeft + li.offsetWidth / 2 - centro);
+        if (dist < menor) { menor = dist; melhor = i; }
+      });
+      return melhor;
+    }
+
+    trilho.addEventListener('scroll', agendarInclinacao, { passive: true });
+    window.addEventListener('resize', agendarInclinacao);
+    centralizar(itens[Math.floor((itens.length - 1) / 2)].parentNode, false);
+    inclinar();
 
     $$('[data-galeria]').forEach(function (b) {
       b.addEventListener('click', function () {
-        var item = trilho.querySelector('li');
-        var passo = item ? item.getBoundingClientRect().width + 14 : trilho.clientWidth / 2;
-        var dir = Number(b.getAttribute('data-galeria'));
-        var fim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
-        if (dir > 0 && fim) trilho.scrollTo({ left: 0, behavior: 'smooth' });
-        else trilho.scrollBy({ left: dir * passo, behavior: 'smooth' });
+        var i = indiceCentral() + Number(b.getAttribute('data-galeria'));
+        i = (i + itens.length) % itens.length; // volta ao começo no fim
+        centralizar(itens[i].parentNode, true);
       });
     });
 
-    if (!dialogo.showModal) return; // navegador antigo: fotos continuam visíveis no carrossel
+    if (!dialogo.showModal) return; // navegador antigo: fotos continuam visíveis na vitrine
     trilho.addEventListener('click', function (e) {
-      var img = e.target.closest('.galeria__item') && e.target.closest('.galeria__item').querySelector('img');
-      if (!img) return;
+      var item = e.target.closest('.vitrine__item');
+      if (!item) return;
+      // Foto lateral: primeiro traz para o centro; foto central: amplia.
+      if (Math.abs(Number(item.style.getPropertyValue('--d'))) > 0.35) { centralizar(item.parentNode, true); return; }
+      var img = $('img', item);
       foto.src = img.currentSrc || img.src;
       foto.alt = img.alt;
       dialogo.showModal();

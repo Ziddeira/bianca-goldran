@@ -35,7 +35,7 @@ Abra `assets/js/config.js` e preencha:
 | `instagram` | @ sem o arroba |
 | `endereco` / `mapsUrl` | Endereço do studio e link do Google Maps |
 
-**Trocar ou adicionar fotos da galeria:** salve a foto em `assets/img/` (de preferência `.webp`, em pé, 720×960) e copie uma das linhas `<li>…galeria__item…</li>` do `index.html`, trocando o nome do arquivo e o texto do `alt`. A primeira foto é a que aparece em destaque (com o topo em arco).
+**Trocar ou adicionar fotos da galeria:** salve a foto em `assets/img/` (de preferência `.webp`, em pé, 720×960) e copie uma das linhas `<li>…galeria__item…</li>` do `index.html`, trocando o nome do arquivo e o texto do `alt`. A vitrine abre com a foto do meio centralizada. A foto grande do topo é `assets/img/hero-perolado.webp`: para trocar, salve outra foto com esse nome (de preferência com pelo menos 1400 px de largura).
 
 ## 2. Ligar a agenda ao Google Agenda da Bianca (10 min, uma vez só)
 
